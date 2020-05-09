@@ -82,3 +82,6 @@ cd build
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
 
 ## What's next
+* Improve scripts
+* Fix issues
+* Restructure The Readme File
