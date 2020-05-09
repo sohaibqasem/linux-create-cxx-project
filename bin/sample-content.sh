@@ -67,24 +67,7 @@ target_include_directories(\$libName PUBLIC "\"\\$\{CMAKE_CURRENT_SOURCE_DIR\}/"
 
 " > add-libaray-static.sh
 
-echo "
-libName=\$1
-cd ..
-echo \"
-target_link_libraries($projName PRIVATE \$libName)
-\" >> CMakeLists.txt
 
-cd Include
-echo \"
-add_library(
-	\$libName SHARED
-	\$libName/\$libName.cpp
-)
-
-target_include_directories(\$libName PUBLIC "\"\\$\{CMAKE_CURRENT_SOURCE_DIR\}/"\")
-\" >> CMakeLists.txt
-
-" > add-libaray-dynamic.sh
 
 echo "
 libName=\$1
