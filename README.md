@@ -1,10 +1,15 @@
 # linux-create-cxx-project
-easy to use shell script to create c++ project with all configrations
+easy to use shell script using cmake to create c++ project
 
 
 Create c++ project  works on Linux.
 If something doesn’t work, please file an issue.
 If you have questions or need help, please ask
+
+## Main fetures
+ * Complie whatever you have written
+ * Import static libraries to your project
+ * Import shared libraries to your project
 
 ## Getting Started
 
@@ -13,33 +18,40 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-you need to install cmake, make, g++
+you will need to install cmake, make, g++
 
-* for ubuntu
+* for ubuntu-Based distribution
 ```
 sudo apt-get install cmake g++
 ```
-* for fedora
+* for fFedora-based
 ```
 sudo dnf install cmake g++ make
 ```
+* to check if all dependencies installed
+```
+cmake --version
+make --version
+g++ --version
+```
 
 ### Installing
-first you need to delete "master" from folder name
+* first you need to delete "master" from folder name after cloning the repo
 so it's become "linux-create-cxx-project"
 
-then you need to move the project forlder to /usr/local/bin
+* then you need to move the project forlder to /usr/local/bin
 
 ```
 sudo mv [folder] /usr/local/bin
 ```
 
-Add export line to
-.bashrc file and
-add this in the last line
+* Add export line to
+ .bashrc file and
+ add this in the last line
 ```
 export PATH=$PATH:/usr/local/bin/linux-create-cxx-project
 ```
+and you good to go :rocket:
 
 ### Usage
 * Navigate to what dir you want
@@ -56,36 +68,39 @@ cd ..
 cd build
 ./<App Name>
 ```
-* To add library-static to the project
-  * copy the folder of the library [as source code] to the Include dir
-  * Make sure the name of the library is the same of the file inside it
+* To import library-static to your project
+  * copy the folder of the library [header file] to the <include> dir
+  * copy the .a file to the <libs> dir
+  * run the import-static script
   ```
   cd scripts
-  add-libaray-static.sh <lib-name> --for static libaray
+  imp-lib-static.sh <lib-name>         [lib-name is the name of .a file]
   ```
-  * Then run start script
+  * Then run ./start script
   
-* To Import library-dynamic to the project
-  * move .so file to /lib folder
+  
+* To Import library-dynamic[shared] to your project
+  * move .so file to /lib folder in your system files
   ```
   sudo mv <lib-name> /lib
   ```
-  * copy .hpp file [header file] to the Include dir inside lib folder
-  * Make sure the name of the library is the same of the file inside it
+  * copy the folder of the library [header file] to the <include> dir
+  * run the import- script
   ```
   cd scripts
-  import-libaray-dynaimc.sh <lib-name> --for importing libaray
+  imp-lib-dynamic.sh <lib-name>         [lib-name is the name of .so file]
   ```
-  * Then run start script
+  * Then run ./start script
   
   ### C++ Project Structure
   ```
   <app-name>
       build/
-      Include/
+      include/
+      libs/
       scripts/
-          add-library-static.sh
-          import-library-dynaimc.sh
+          imp-lib-static.sh
+          imp-lib-dynamic.sh
           start.sh
       src/
           Main.cpp
@@ -99,6 +114,9 @@ cd build
 ## Built With
 
 * Shell script - used to generate the project structure and sample code
+* cmake
+* make
+* g++
 
 
 ## License
@@ -106,5 +124,4 @@ cd build
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
 
 ## What's next
-* Improve scripts
-* Restructure The Readme File
+* first release
