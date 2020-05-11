@@ -1,4 +1,6 @@
-cd src
+projName=$1
+
+cd $projName/src
 echo "
 #include<iostream>
 int main()

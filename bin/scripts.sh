@@ -1,6 +1,6 @@
 projName=$1
 
-
+cd $projName
 cd scripts
 echo "
 #!/bin/sh
@@ -15,7 +15,7 @@ echo "
 libName=\$1
 cd ..
 echo \"
-target_link_libraries($projName PRIVATE ${CMAKE_SOURCE_DIR}/libs/$libName.a)
+target_link_libraries($projName PRIVATE \${CMAKE_SOURCE_DIR}/libs/\$libName.a)
 \" >> CMakeLists.txt
 " > imp-lib-static.sh
 
@@ -25,7 +25,7 @@ echo "
 libName=\$1
 cd ..
 echo \"
-target_link_libraries($projName PRIVATE $libName)
+target_link_libraries($projName PRIVATE \$libName)
 \" >> CMakeLists.txt
 " > imp-lib-dynamic.sh
 

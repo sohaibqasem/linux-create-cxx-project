@@ -4,14 +4,15 @@ projName=$1
 
 echo Creating $projName ...
 
-echo Creating folder structure
-/usr/local/bin/linux-create-cxx-project/bin/proj-str.sh $projName
-echo Creating $projName ...
-/usr/local/bin/linux-create-cxx-project/bin/cmake-files.sh $projName
-echo Creating $projName ...
-/usr/local/bin/linux-create-cxx-project/bin/scripts.sh $projName
-/usr/local/bin/linux-create-cxx-project/bin/sample.sh
+bin/proj-str.sh $projName
 
-echo Created successfully
-cd ${PWD}/$projName/scripts
-./start
+bin/cmake-files.sh $projName
+
+bin/scripts.sh $projName
+
+bin/sample.sh $projName
+
+cd ${PWD}/$projName
+./build.sh
+echo type [cd $projName]
+

@@ -1,12 +1,10 @@
 projName=$1
 
-
-
 cd $projName
 echo "
 #!/bin/sh
 cd build
-cmake ..
+cmake .. -DCMAKE_BUILD_TYPE=Debug
 #rm -r CMakeFiles/
 #rm cmake_install.cmake
 #rm CMakeCache.txt
@@ -32,7 +30,7 @@ cmake_minimum_required (VERSION 3.5)
 project ($projName VERSION 1.0.0)
 add_subdirectory(libs)
 
-include_directories(${PROJECT_SOURCE_DIR}/include)
+include_directories(\${PROJECT_SOURCE_DIR}/include)
 
 set (CMAKE_CXX_FLAGS \"\${CMAKE_CXX_FLAGS} -Wall -Werror -std=c++14\")
 set (source_dir \"\${PROJECT_SOURCE_DIR}/src/\")
@@ -46,6 +44,6 @@ add_executable ($projName \${source_files})
 
 
 
-cd Include
+cd libs
 echo "" >> CMakeLists.txt
 cd ..
