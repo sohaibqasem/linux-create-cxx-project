@@ -1,3 +1,6 @@
+[![Os](https://img.shields.io/badge/os-linux-green.svg?branch=master)](https://img.shields.io/badge/os-linux-green)
+[![License](https://img.shields.io/github/license/sohaibqasem/linux-create-cxx-project)](https://img.shields.io/github/license/sohaibqasem/linux-create-cxx-project)
+
 # linux-create-cxx-project
 easy to use shell script using cmake to create c++ project
 
