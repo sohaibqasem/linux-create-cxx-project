@@ -27,7 +27,7 @@ you will need to install cmake, make, g++
 ```
 sudo apt-get install cmake g++
 ```
-* for fFedora-based
+* for Fedora-based
 ```
 sudo dnf install cmake g++ make
 ```
@@ -122,9 +122,13 @@ cd build
 * g++
 
 
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
 
 ## What's next
-* first release
