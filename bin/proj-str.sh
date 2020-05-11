@@ -6,7 +6,8 @@ projName=$1
 mkdir $projName
 cd $projName
 
-mkdir Include
+mkdir include
+mkdir libs
 mkdir build
 mkdir scripts
 
@@ -18,13 +19,14 @@ chmod +x compile.sh
 
 cd scripts
 touch start.sh
-touch add-library-static.sh
-touch import-library-dynamic.sh
+touch imp-lib-static.sh
+touch imp-lib-dynamic.sh
 chmod +x start.sh
-chmod +x add-library-static.sh
-chmod +x import-library-dynamic.sh
+chmod +x imp-lib-static.sh
+chmod +x imp-lib-dynamic.sh
 cd ..
 
 mkdir src
 cd src
 touch Main.cpp
+cd ..
