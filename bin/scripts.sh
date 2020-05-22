@@ -15,7 +15,7 @@ echo "
 libName=\$1
 cd ..
 echo \"
-target_link_libraries($projName PRIVATE \${CMAKE_SOURCE_DIR}/libs/\$libName.a)
+target_link_libraries($projName PRIVATE \${CMAKE_SOURCE_DIR}/\$libName.a)
 \" >> CMakeLists.txt
 " > imp-lib-static.sh
 
