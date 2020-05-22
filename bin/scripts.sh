@@ -1,6 +1,6 @@
 projName=$1
 
-cd $projName
+cd $projName-workSpace/$projName
 cd scripts
 echo "
 #!/bin/sh
@@ -12,22 +12,18 @@ mkdir build
 " > start.sh
 
 echo "
-libName=\$1
+#!/bin/sh
 cd ..
-echo \"
-target_link_libraries($projName PRIVATE \${CMAKE_SOURCE_DIR}/\$libName.a)
-\" >> CMakeLists.txt
-" > imp-lib-static.sh
+rm -r build/
+mkdir build
 
-
+" > release.sh
 
 echo "
+#!/bin/sh
 libName=\$1
-cd ..
-echo \"
-target_link_libraries($projName PRIVATE \$libName)
-\" >> CMakeLists.txt
-" > imp-lib-dynamic.sh
-
+cd ../..
+mkdir \$libName
+" > create-lib.sh
 
 cd ..
