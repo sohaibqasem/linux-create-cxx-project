@@ -44,6 +44,7 @@ cmake .. -DCMAKE_BUILD_TYPE=Debug
 echo "
 #!/bin/sh
 libName=\$1
+projName=\$2
 cd ../..
 mkdir \$libName
 cd \$libName
@@ -51,29 +52,50 @@ mkdir include
 mkdir src
 mkdir build
 touch CMakeLists.txt
+touch buildAndLink.sh
+chmod +x buildAndLink.sh
 
 echo \"
-
 cmake_minimum_required (VERSION 3.5)
 
 project (\$libName VERSION 1.0.0)
 
-include_directories(\${PROJECT_SOURCE_DIR}/include/)
+include_directories(\\\${PROJECT_SOURCE_DIR}/include/)
 
-set (CMAKE_CXX_FLAGS \"\$\{CMAKE_CXX_FLAGS\} -Wall -std=c++14\")
-set (source_dir \"\${PROJECT_SOURCE_DIR}/src/\")
+set (CMAKE_CXX_FLAGS \\\"\\\${CMAKE_CXX_FLAGS} -Wall -std=c++14\\\")
+set (source_dir \"\\\${PROJECT_SOURCE_DIR}/src/\")
 
-file (GLOB_RECURSE source_files \"\${source_dir}*.cpp\")
+file (GLOB_RECURSE source_files \\\${source_dir}/*.cpp)
 
-FOREACH(subdir \${source_files})
-  message(STATUS \${subdir})
+FOREACH(subdir \\\${source_files})
+  message(STATUS \\\${subdir})
 ENDFOREACH()
 
 add_library(
-    test_sub
-    \${source_files})
+    \$libName
+    \"\\\${source_files}\")
 
 \" >> CMakeLists.txt
+
+echo \"
+projName=\\\$1
+libName=\\\${PWD##*/}
+cd build
+cmake ..
+make
+
+cp lib\\\$libName.a ../../\\\$projName/libs/
+cd ..
+cd include
+cp -r ./ ../../\\\$projName/include/
+
+cd ../../\\\$projName/
+echo \\\"
+target_link_libraries(\\\$projName PRIVATE \\\$libName)
+\\\" >> CMakeLists.txt
+
+\" > buildAndLink.sh
+
 " > create-lib.sh
 
 cd ..
