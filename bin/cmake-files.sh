@@ -1,25 +1,6 @@
 projName=$1
 
 cd $projName-workSpace/$projName
-echo "
-#!/bin/sh
-cd build
-cmake .. -DCMAKE_BUILD_TYPE=Debug
-#rm -r CMakeFiles/
-#rm cmake_install.cmake
-#rm CMakeCache.txt
-" > build.sh
-
-echo "
-#!/bin/sh
-cd build
-make
-
-echo  to run the project
-echo  cd ..
-echo  cd build
-echo  ./$projName
-" > compile.sh
 
 
 echo "
