@@ -12,7 +12,7 @@ echo Creating $projName ...
 
 /usr/local/bin/linux-create-cxx-project/bin/sample.sh $projName
 
-cd ${PWD}/$projName
+cd ${PWD}/$projName-workSpace/$projName
 ./build.sh
 echo type [cd $projName]
 

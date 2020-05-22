@@ -1,6 +1,6 @@
 projName=$1
 
-cd $projName/src
+cd $projName-workSpace/$projName/src
 echo "
 #include<iostream>
 int main()

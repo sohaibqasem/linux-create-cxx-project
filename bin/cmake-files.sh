@@ -1,6 +1,6 @@
 projName=$1
 
-cd $projName
+cd $projName-workSpace/$projName
 echo "
 #!/bin/sh
 cd build
