@@ -29,7 +29,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-you will need to install cmake, make, g++, In general we can install it from your packge manger
+you will need to install cmake, make, g++, you can install these tools from your package manager
 
 * To check if all dependencies installed
 ```
