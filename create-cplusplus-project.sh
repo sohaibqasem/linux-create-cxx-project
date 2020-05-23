@@ -15,5 +15,5 @@ echo Creating $projName ...
 cd ${PWD}/$projName-workSpace/$projName
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Debug
-echo type [cd $projName]
+echo type [cd $projName-workSpace/$projName]
 
