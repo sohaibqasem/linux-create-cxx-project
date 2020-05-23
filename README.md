@@ -41,21 +41,57 @@ you will need to install cmake, make, g++, In general we can install it from you
 curl -LJO https://raw.githubusercontent.com/sohaibqasem/linux-create-cxx-project/master/setup.sh && sudo  sh setup.sh && rm setup.sh 
 ```
 
-and you good to go :rocket:
+enjoy coding :rocket:
 
 ### Use Cases
 * Navigate to what dir you want
-* run the script Ex:
-
+* run the script 
+Ex:
 ```
 create-cplusplus-project.sh <App Name>
-cd <App Name>
 ```
-  
+
+
+### To import static library
+   * Move header files to include dir
+   * Move xxx.a file to libs dir
+   * Add this line to the CMakeLists.txt
+      ```
+      target_link_libraries(proj-Name PRIVATE xxx.a)
+      ```
+
+### To import dynamic library
+   * Move header files to include dir
+   * Move xxx.a file to libs dir
+   * Add this line to the CMakeLists.txt
+      ```
+      target_link_libraries(proj-Name PRIVATE xxx.so)
+      ```
+     
+### To create static library
+   * Go to scripts dir
+   * run create-lib script
+     ```
+     ./create-lib.sh lib-name
+     ```
+   * To build the library run
+     ```
+     ./build.sh
+     ```
+   * To complete linking it with your project Add this line to the CMakeLists.txt
+     ```
+     target_link_libraries(proj-Name PRIVATE xxx.so)
+     ``` 
+     Note: everytime you make change to the library you need to build it again
+   
 ### C++ Project Structure
   ```
   <app-name-workSpace>
       <lib1>
+          build/
+          include/
+          src/
+          ./build.sh
       <lib2>
         .
         .
