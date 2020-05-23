@@ -37,6 +37,9 @@ you will need to install cmake, make, g++, In general we can install it from you
 ```
 
 ### Installing
+```
+curl -LJO https://raw.githubusercontent.com/sohaibqasem/linux-create-cxx-project/master/setup.sh && sudo  sh setup.sh && rm setup.sh 
+```
 
 and you good to go :rocket:
 
