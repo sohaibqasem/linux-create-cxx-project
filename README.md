@@ -50,7 +50,17 @@ Ex:
 ```
 create-cplusplus-project.sh <App Name>
 ```
-
+### To build and compile your code
+  * Go to scripts dir
+  * run ./start.sh
+  
+### To rebuild
+  * Go to scripts dir
+  * run ./rebuild.sh
+  
+### To build a release
+  * Go to scripts dir
+  * run ./release.sh
 
 ### To import static library
    * Move header files to include dir
