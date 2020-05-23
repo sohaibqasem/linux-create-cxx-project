@@ -14,7 +14,7 @@ if [ -f "$FILE" ]; then
     echo  Compilation Secessed
     echo
     echo  To run the exe
-    echo  ../build/test1
+    echo  ../build/$projName
     echo
 else 
     echo
@@ -29,7 +29,8 @@ cd ..
 rm -r build/
 mkdir build
 cd build
-cmake .. -DCMAKE_BUILD_TYPE=Debug
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make
 " > release.sh
 
 echo "
