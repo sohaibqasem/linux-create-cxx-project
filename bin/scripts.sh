@@ -52,8 +52,8 @@ mkdir include
 mkdir src
 mkdir build
 touch CMakeLists.txt
-touch buildAndLink.sh
-chmod +x buildAndLink.sh
+touch build.sh
+chmod +x build.sh
 
 echo \"
 cmake_minimum_required (VERSION 3.5)
@@ -87,14 +87,9 @@ make
 cp lib\\\$libName.a ../../\\\$projName/libs/
 cd ..
 cd include
-cp -r ./ ../../\\\$projName/include/
+cp -r ./ ../../\\\$projName/include/\\\$libName
 
-cd ../../\\\$projName/
-echo \\\"
-target_link_libraries(\\\$projName PRIVATE \\\$libName)
-\\\" >> CMakeLists.txt
-
-\" > buildAndLink.sh
+\" > build.sh
 
 " > create-lib.sh
 
