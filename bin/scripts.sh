@@ -1,15 +1,16 @@
 projName=$1
 
-cd $projName-workSpace/$projName
+cd $projName-workSpace
 cd scripts
 echo "
 #!/bin/sh
-cd ..
+cd \$PWD
+cd $projName
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Debug
 make
-FILE=test1
-if [ -f "$FILE" ]; then
+FILE=$projName
+if [ -f "\$FILE" ]; then
     echo
     echo  Compilation Secessed
     echo
@@ -25,7 +26,8 @@ fi
 
 echo "
 #!/bin/sh
-cd ..
+cd \$PWD
+cd $projName
 rm -r build/
 mkdir build
 cd build
@@ -35,18 +37,20 @@ make
 
 echo "
 #!/bin/sh
-cd ..
+cd \$PWD
+cd $projName
 rm -r build/
 mkdir build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Debug
+make
 " > rebuild.sh
 
 echo "
 #!/bin/sh
 libName=\$1
 projName=\$2
-cd ../..
+cd \$PWD
 mkdir \$libName
 cd \$libName
 mkdir include
@@ -79,19 +83,51 @@ add_library(
 \" >> CMakeLists.txt
 
 echo \"
-projName=\\\$1
-libName=\\\${PWD##*/}
+
+#!/bin/sh
+libName=\\\$1
+projName=\\\$2
+
 cd build
 cmake ..
 make
 
-cp lib\\\$libName.a ../../\\\$projName/libs/
-cd ..
-cd include
-cp -r ./ ../../\\\$projName/include/\\\$libName
+
+if [ -z "\\\$projName" ] 
+then
+	echo ""
+ 
+else
+    echo \\\$PWD
+    cp lib\\\$libName.a ../../\\\$projName/libs/
+    cd ..
+    cd include
+    cp -r ./ ../../\\\$projName/include/\\\$libName
+fi
 
 \" > build.sh
 
 " > create-lib.sh
+
+echo "
+
+#!/bin/sh
+libName=\$1
+projName=\$2
+
+cd \$PWD
+for d in *; do
+
+    if [ \$d == \$libName ] ; then
+
+    echo \$d
+    cd \$d
+    ./build.sh \$libName \$projName
+
+    break
+    fi
+
+done
+" > build-lib.sh
 
 cd ..
