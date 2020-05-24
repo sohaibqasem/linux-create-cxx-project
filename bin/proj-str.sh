@@ -15,7 +15,6 @@ echo "
     \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\",
     \"start\": \"scripts/start.sh\",
     \"release\": \"scripts/release.sh\",
-    \"rebuild\": \"scripts/rebuild.sh\",
     \"exe\": \"clear && $projName/build/$projName\",
     \"create-lib\": \"scripts/create-lib.sh\",
     \"build-lib\": \"bash scripts/build-lib.sh\",
@@ -55,13 +54,14 @@ cd scripts
 
 touch start.sh
 touch release.sh
-touch rebuild.sh
 touch create-lib.sh
+touch build-lib.sh
+
 
 chmod +x start.sh
 chmod +x release.sh
-chmod +x rebuild.sh
 chmod +x create-lib.sh
+chmod +x build-lib.sh
 
 cd ..
 cd $projName
