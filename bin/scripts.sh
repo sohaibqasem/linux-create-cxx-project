@@ -12,14 +12,14 @@ make
 FILE=$projName
 if [ -f "\$FILE" ]; then
     echo
-    echo  Compilation Secessed
+    echo  \"\e[32m Compilation Secessed\"
     echo
-    echo  To run the exe
-    echo  ../build/$projName
+    echo  \"\e[32m To run the exe type\"
+    echo      \"\e[32m \e[1m npm run exe\"
     echo
 else 
     echo
-    echo "Compilation failled"
+    echo \"\e[31m Compilation failled\"
     echo
 fi
 " > start.sh
@@ -35,16 +35,7 @@ cmake .. -DCMAKE_BUILD_TYPE=Release
 make
 " > release.sh
 
-echo "
-#!/bin/sh
-cd \$PWD
-cd $projName
-rm -r build/
-mkdir build
-cd build
-cmake .. -DCMAKE_BUILD_TYPE=Debug
-make
-" > rebuild.sh
+
 
 echo "
 #!/bin/sh
