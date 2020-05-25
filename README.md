@@ -18,9 +18,18 @@ If you have questions or need help, please ask
  ### New
  * Generate static libraries and link it to your projects
  * Add setup script for easy installation
+ * manage the project throgh npm scripts 
  ### What's next
  * Add Testing folder to create tests using gTest
  * Improve scripts and add more fetures
+
+## OverView
+```
+npx linux-create-cxx-project <appName>
+cd <appName-workSpace>
+npm start
+npm run exe
+```
 
 ## Getting Started
 
@@ -29,7 +38,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-you will need to install cmake, make, g++, you can install these tools from your package manager
+you will need to install **cmake**, **make**, **g++**, you can install these tools from your package manager
 
 * To check if all dependencies installed
 ```
@@ -38,7 +47,7 @@ you will need to install cmake, make, g++, you can install these tools from your
 
 ### Installing
 ```
-curl -LJO https://raw.githubusercontent.com/sohaibqasem/linux-create-cxx-project/master/setup.sh && sudo  sh setup.sh && rm setup.sh 
+npm i linux-create-cxx-project
 ```
 
 enjoy coding :rocket:
@@ -48,50 +57,37 @@ enjoy coding :rocket:
 * run the script 
 Ex:
 ```
-create-cplusplus-project.sh <App Name>
+npx linux-create-cxx-project <appName>
 ```
 ### To build and compile your code
-  * Go to scripts dir
-  * run ./start.sh
-  
-### To rebuild
-  * Go to scripts dir
-  * run ./rebuild.sh
+  ```
+  npm start
+  npm run exe
+  ```
   
 ### To build a release
-  * Go to scripts dir
-  * run ./release.sh
+   ```
+   npm release
+   npm run exe
+   ```
 
 ### To import static library
    * Move header files to include dir
    * Move xxx.a file to libs dir
-   * Add this line to the CMakeLists.txt
-      ```
-      target_link_libraries(proj-Name PRIVATE xxx.a)
-      ```
 
 ### To import dynamic library
    * Move header files to include dir
-   * Move xxx.a file to libs dir
-   * Add this line to the CMakeLists.txt
-      ```
-      target_link_libraries(proj-Name PRIVATE xxx.so)
-      ```
+   * Move xxx.so file to libs dir
      
-### To create static library
-   * Go to scripts dir
-   * run create-lib script
-     ```
-     ./create-lib.sh lib-name
-     ```
+### To create library
+   * npm run create-lib <lib-name> <lib-type>
+       * lib types
+          - st >> static
+          - dy >> shared
    * To build the library run
      ```
-     ./build.sh
+     npm run build-lib <lib-name> [<projname>]
      ```
-   * To complete linking it with your project Add this line to the CMakeLists.txt
-     ```
-     target_link_libraries(proj-Name PRIVATE xxx.so)
-     ``` 
      Note: everytime you make change to the library you need to build it again
    
 ### C++ Project Structure
