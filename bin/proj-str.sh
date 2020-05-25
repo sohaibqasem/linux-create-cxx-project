@@ -18,7 +18,8 @@ echo "
     \"exe\": \"clear && $projName/build/$projName\",
     \"create-lib\": \"bash scripts/create-lib.sh\",
     \"build-lib\": \"bash scripts/build-lib.sh\",
-    \"install\": \"mkdir -p scripts && cd scripts && /usr/local/bin/linux-create-cxx-project/bin/scripts.sh $projName && chmod +x start.sh && chmod +x rebuild.sh && chmod +x release.sh && chmod +x create-lib.sh\"
+    \"install\": \"mkdir -p scripts && cd scripts &&curl -LJO https://raw.githubusercontent.com/sohaibqasem/linux-create-cxx-project/master/bin/scripts.sh && sh scripts.sh $projName && rm scripts.sh && chmod +x start.sh && chmod +x rebuild.sh && chmod +x release.sh && chmod +x create-lib.sh\"
+
   },
   \"author\": \"\",
   \"license\": \"ISC\"
