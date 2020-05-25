@@ -72,7 +72,9 @@ npx linux-create-cxx-project <appName>
    * Move xxx.so file to libs dir
      
 ### To create library
-   - npm run create-lib <lib-name> <lib-type>
+  ```
+  npm run create-lib <lib-name> <lib-type>
+  ```
        * lib types
           - st >> static
           - dy >> shared
