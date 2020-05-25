@@ -28,6 +28,13 @@ npm start
 npm run exe
 ```
 
+## install it locally
+  - clone it
+  - run
+    ```
+    sudo ./setup.sh
+    ```
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
