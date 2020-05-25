@@ -21,7 +21,7 @@ linux-create-cxx-project/
         cmake-files.sh---prepare project with cmake
         proj-str.sh--- add sub folders and files
         sample.sh---c++ sample code
-        scripts.sh---scripts help user to compile and import libraries
+        scripts.sh---scripts help user to compile, import and generate libraries
 ```
 
 ## Contributing steps
