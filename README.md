@@ -15,13 +15,10 @@ If you have questions or need help, please ask
  * Complie whatever you have written
  * Import static libraries to your project
  * Import shared libraries to your project
- ### New
+### New
  * Generate static libraries and link it to your projects
  * Add setup script for easy installation
  * manage the project throgh npm scripts 
- ### What's next
- * Add Testing folder to create tests using gTest
- * Improve scripts and add more fetures
 
 ## OverView
 ```
@@ -43,11 +40,6 @@ you will need to install **cmake**, **make**, **g++**, you can install these too
 * To check if all dependencies installed
 ```
 <toolName> --version
-```
-
-### Installing
-```
-npm i linux-create-cxx-project
 ```
 
 enjoy coding :rocket:
