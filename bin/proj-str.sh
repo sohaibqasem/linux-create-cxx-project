@@ -16,7 +16,7 @@ echo "
     \"start\": \"scripts/start.sh\",
     \"release\": \"scripts/release.sh\",
     \"exe\": \"clear && $projName/build/$projName\",
-    \"create-lib\": \"scripts/create-lib.sh\",
+    \"create-lib\": \"bash scripts/create-lib.sh\",
     \"build-lib\": \"bash scripts/build-lib.sh\",
     \"install\": \"mkdir -p scripts && cd scripts && /usr/local/bin/linux-create-cxx-project/bin/scripts.sh $projName && chmod +x start.sh && chmod +x rebuild.sh && chmod +x release.sh && chmod +x create-lib.sh\"
   },

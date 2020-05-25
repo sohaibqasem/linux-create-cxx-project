@@ -40,12 +40,27 @@ make
 echo "
 #!/bin/sh
 libName=\$1
-projName=\$2
+libType=\$2
+
+if [ \"\$libType\" == \"st\" ]; then
+libType=\"STATIC\"
+else
+    if [ \"\$libType\" == \"dy\" ]; then
+    libType=\"SHARED\"
+    else
+        libType=\"STATIC\"
+    fi
+fi
+
+echo \$libType
+
 cd \$PWD
 mkdir \$libName
 cd \$libName
 mkdir include
+touch include/source.h
 mkdir src
+touch src/source.cpp
 mkdir build
 touch CMakeLists.txt
 touch build.sh
@@ -69,6 +84,7 @@ ENDFOREACH()
 
 add_library(
     \$libName
+    \$libType
     \"\\\${source_files}\")
 
 \" >> CMakeLists.txt
@@ -90,7 +106,7 @@ then
  
 else
     echo \\\$PWD
-    cp lib\\\$libName.a ../../\\\$projName/libs/
+    cp lib\\\$libName.* ../../\\\$projName/libs/
     cd ..
     cd include
     cp -r ./ ../../\\\$projName/include/\\\$libName
