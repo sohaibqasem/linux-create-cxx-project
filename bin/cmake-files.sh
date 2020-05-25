@@ -17,4 +17,23 @@ set (source_dir \"\${PROJECT_SOURCE_DIR}/src/\")
 file (GLOB_RECURSE source_files \"\${source_dir}/*.cpp\")
 
 add_executable ($projName \${source_files})
+
+MACRO(LIBLIST result curlib)
+  FILE(GLOB_RECURSE children RELATIVE \${curlib} \${curlib}/*)
+  SET(liblist "")
+  FOREACH(child \${children})
+    
+      LIST(APPEND liblist \${child})
+    
+  ENDFOREACH()
+  SET(\${result} \${liblist})
+ENDMACRO()
+
+LIBLIST(LIBS \${PROJECT_SOURCE_DIR}/libs)
+
+FOREACH(LIB \${LIBS})
+  message(STATUS \${LIB})
+  target_link_libraries($projName PRIVATE \${LIB})
+ENDFOREACH()
+
 " > CMakeLists.txt
