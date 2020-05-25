@@ -80,13 +80,17 @@ npx linux-create-cxx-project <appName>
    * Move xxx.so file to libs dir
      
 ### To create library
-   * npm run create-lib <lib-name> <lib-type>
+   - npm run create-lib <lib-name> <lib-type>
        * lib types
           - st >> static
           - dy >> shared
-   * To build the library run
+   - To build the library run 
      ```
-     npm run build-lib <lib-name> [<projname>]
+     npm run build-lib <lib-name>
+     ```
+   - To build the library and link it run
+     ```
+     npm run build-lib <lib-name> <app-name>
      ```
      Note: everytime you make change to the library you need to build it again
    
@@ -106,10 +110,10 @@ npx linux-create-cxx-project <appName>
           include/
           libs/
           scripts/
-              rebuild.sh
               release.sh
               start.sh
               create-lib.sh
+              build-lib.sh
           src/
               Main.cpp
               .
