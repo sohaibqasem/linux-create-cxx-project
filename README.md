@@ -20,7 +20,22 @@ If you have questions or need help, please ask
  * Add setup script for easy installation
  * manage the project throgh npm scripts 
 
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
 ## OverView
+
+### Prerequisites
+
+you will need to install **cmake**, **make**, **g++**, you can install these tools from your package manager
+
+* To check if a dependenciy installed
+```
+<toolName> --version
+```
+## How to use
+
 ```
 npx linux-create-cxx-project <appName>
 cd <appName-workSpace>
@@ -28,26 +43,12 @@ npm start
 npm run exe
 ```
 
-## install it locally
+## Install it locally
   - clone it
   - run
     ```
     sudo ./setup.sh
     ```
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
-
-### Prerequisites
-
-you will need to install **cmake**, **make**, **g++**, you can install these tools from your package manager
-
-* To check if all dependencies installed
-```
-<toolName> --version
-```
 
 enjoy coding :rocket:
 
@@ -78,18 +79,18 @@ npx linux-create-cxx-project <appName>
    * Move header files to include dir
    * Move xxx.so file to libs dir
      
-### To create library
+### To create a library
   ```
   npm run create-lib <lib-name> <lib-type>
   ```
        * lib types
           - st >> static
           - dy >> shared
-   - To build the library run 
+   - to build the library run 
      ```
      npm run build-lib <lib-name>
      ```
-   - To build the library and link it run
+   - to build the library and link it run
      ```
      npm run build-lib <lib-name> <app-name>
      ```
