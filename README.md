@@ -16,7 +16,7 @@ If you have questions or need help, please ask
  * Import static libraries to your project
  * Import shared libraries to your project
 ### New
- * Generate static libraries and link it to your projects
+ * Generate static, shared libraries and link it to your projects
  * Add setup script for easy installation
  * manage the project throgh npm scripts 
 
@@ -47,8 +47,14 @@ npm run exe
   - clone it
   - run
     ```
+    cd linux-create-cxx-project
     sudo ./setup.sh
+    cd && echo "export PATH=\$PATH:/usr/local/bin/linux-create-cxx-project" >> .bashrc
     ```
+  - navigate where you want to create the project and run:
+      ```
+      create-cplusplus-project.sh <app-name>
+      ```
 
 enjoy coding :rocket:
 
