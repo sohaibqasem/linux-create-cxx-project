@@ -1,6 +1,9 @@
 [![Os](https://img.shields.io/badge/os-linux-green.svg?branch=master)](https://img.shields.io/badge/os-linux-green)
 [![License](https://img.shields.io/github/license/sohaibqasem/linux-create-cxx-project)](https://img.shields.io/github/license/sohaibqasem/linux-create-cxx-project)
+
 ![Release](https://img.shields.io/github/v/release/sohaibqasem/linux-create-cxx-project?include_prereleases)
+
+![downloads](https://img.shields.io/npm/dw/linux-create-cxx-project)
 
 
 # linux-create-cxx-project
@@ -104,7 +107,7 @@ npx linux-create-cxx-project <appName>
    
 ### C++ Project Structure
   ```
-  <app-name-workSpace>
+  <appName-workSpace>
       <lib1>
           build/
           include/
@@ -117,15 +120,15 @@ npx linux-create-cxx-project <appName>
           build/
           include/
           libs/
-          scripts/
-              release.sh
-              start.sh
-              create-lib.sh
-              build-lib.sh
           src/
               Main.cpp
               .
               .
+      scripts/
+              release.sh
+              start.sh
+              create-lib.sh
+              build-lib.sh
   ```
   
 ## Built With
