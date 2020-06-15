@@ -3,7 +3,7 @@
 
 ![Release](https://img.shields.io/github/v/release/sohaibqasem/linux-create-cxx-project?include_prereleases)
 
-![downloads](https://img.shields.io/npm/dw/linux-create-cxx-project)
+
 
 
 # linux-create-cxx-project
